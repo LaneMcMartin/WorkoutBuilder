@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+    <!--<body style="background-image: url(/static/register.png)">-->
+
+    <div class="jumbotron">
+      <h1 class="display-4">
+          A better workout is right around the corner!
+          </h1>
+      <img src="/static/logo.png" width="150" height="150" class="p-3" alt="">
+      <p class="lead">Register below to begin creating, sharing, and discovering the perfect workout routine!</p>
+    </div>
+
+    <form action="/register" autocomplete="off" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" id="username" placeholder="Username" type="text" maxlength="15"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" id="password" placeholder="Password" type="password"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" id="confirmation" placeholder="Confirm Password" type="password"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+    <br>
+    {% if errormsg %}
+        <div class="alert alert-danger" role="alert">
+          Error: {{ errormsg }}!
+        </div>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {% if workouts %}
+        {{ workouts[0].workout_name }}
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    {% if workouts %}
+        <h1>{{ workouts[0].workout_name }}</h1><br>
+
+        <table style="width:100%" class="table table-striped">
+
+        <tr>
+            <th>Exercise</th>
+            <th>Sets</th>
+            <th>Reps</th>
+        </tr>
+
+        {% for workout in workouts %}
+            <tr>
+                <td>{{ workout.exercise }}</td>
+                <td>{{ workout.sets }}</td>
+                <td>{{ workout.reps }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    {% endif %}
+{% endblock %}

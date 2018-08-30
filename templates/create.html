@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create
+{% endblock %}
+
+{% block main %}
+    <!-- Script to add another line of input when add button is clicked and remove line when remove button is clicked-->
+    <script type="text/javascript">
+        $(document).on('click', '.btn-add', function(e) {
+            e.preventDefault();
+
+            var controlForm = $('.controls'),
+              currentEntry = $(this).parents('.form-row:first'),
+              newEntry = $(currentEntry.clone()).appendTo(controlForm);
+
+            newEntry.find('input').val('');
+            controlForm.find('.btn-add:not(:last)')
+              .removeClass('btn-default').addClass('btn-danger')
+              .removeClass('btn-add').addClass('btn-remove')
+              .html(' - ');
+          }).on('click', '.btn-remove', function(e) {
+            $(this).parents('.form-row:first').remove();
+
+            e.preventDefault();
+            return false;
+          });
+    </script>
+
+    <!-- Serve the form containing Workout Name and Description -->
+    <div class="jumbotron">
+      <h1 class="display-5">Create a new workout plan!</h1>
+      <p class="lead">Please fill out the form below to create a new plan.</p>
+    </div>
+
+    <form action="/create" autocomplete="off" method="post">
+        <div class="form pb-3">
+            <label for="workout_name"><strong><em>Give your workout a name! </strong></em></label><br>
+            <input type="text" class="form-control" id="workout_name" name="workout_name" placeholder="Name">
+        </div>
+        <br>
+        <div class="form pb-3">
+            <label for="workout_type"><strong><em>How would you describe your workout? </strong></em></label><br>
+            <select class="form-control" id="workout_type" name="workout_type">
+              <option value="Aerobic">Aerobic</option>
+              <option value="Strength">Strength</option>
+              <option value="Balance">Balance</option>
+              <option value="Flexibility">Flexibility</option>
+              <option value="High-Intensity">High-Intensity</option>
+            </select>
+        </div>
+        <br>
+        <div class="form pb-3">
+            <label for="private"><strong><em>Privatize your workout? </strong></em></label><br>
+            <input type="checkbox" class="form-control" id="private" name="private" value="checked">
+        </div>
+        <br>
+
+        <!-- The next section is the table that the user will fill out - it is cloned by the Javascript code above-->
+        <div>
+            <div class="controls">
+              <div class="form-row pb-3">
+                    <div class="col">
+                      <input type="text" class="form-control" id="exercise" name="exercise" placeholder="Exercise Name">
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control" id="sets" name="sets" placeholder="Sets">
+                    </div>
+                    <div class="col">
+                      <input type="number" class="form-control" id="reps" name="reps" placeholder="Reps">
+                    </div>
+                    <button type="button" class="btn btn-success btn-add">+</button>
+              </div>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Submit</button><br>
+    </div>
+
+    <br>
+    {% if errormsg %}
+        <div class="alert alert-danger" role="alert">
+          Error: {{ errormsg }}!
+        </div>
+    {% endif %}
+{% endblock %}

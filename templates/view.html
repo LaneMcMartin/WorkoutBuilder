@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    View
+{% endblock %}
+
+{% block main %}
+
+    <div class="jumbotron">
+      <h1 class="display-5">We're all in this together!</h1>
+      <p class="lead">Choose a public workout plan to get started!</p>
+    </div>
+
+    <table style="width:100%" class="table table-striped">
+
+        <tr>
+            <th>Workout Name</th>
+            <th>Workout Type</th>
+            <th>Author Name</th>
+            <th>View</th>
+        </tr>
+
+        <form action="/" method="POST" >
+        {% for workout in workouts %}
+            <tr>
+                <td>{{ workout.workout_name }}</td>
+                <td>{{ workout.workout_type }}</td>
+                <td>{{ workout.author_name }}</td>
+                <td><button type="submit" name="selector" id="{{ workout.workout_id }}" value="{{ workout.workout_id }}" class="btn btn-success"><span class="far fa-eye fa-fw"></span>    Select</button></td>
+            </tr>
+        {% endfor %}
+        </form>
+    </table>
+
+{% endblock %}
