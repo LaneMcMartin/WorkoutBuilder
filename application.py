@@ -1,6 +1,7 @@
 import os
 
 from cs50 import SQL
+import sqlalchemy
 from flask import Flask, flash, redirect, render_template, request, session, jsonify
 from flask_session import Session
 from tempfile import mkdtemp
