@@ -4,6 +4,7 @@ click==6.7
 cs50==2.4.1
 Flask==1.0.2
 Flask-Session==0.3.1
+functools
 idna==2.7
 itsdangerous==0.24
 Jinja2==2.10
