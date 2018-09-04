@@ -225,7 +225,7 @@ def view():
     else:
 
         # Fetch a table of every workout stored in the database, provided they aren't private
-        workouts = db.execute("SELECT workouts.workout_name, workouts.workout_id, workouts.author_name, workouts.workout_type FROM workouts WHERE private=:private", private=int(0))
+        workouts = db.execute("SELECT workouts.workout_name, workouts.workout_id, workouts.author_name, workouts.workout_type FROM workouts WHERE private=:private", private=False)
 
         # Return 'index.html' which will generate a table of all created workouts
         return render_template("view.html", workouts=workouts)
