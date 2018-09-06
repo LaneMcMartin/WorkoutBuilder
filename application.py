@@ -26,10 +26,10 @@ def after_request(response):
     return response
 
 # Configure session to use filesystem (instead of signed cookies)
-app.config["SESSION_FILE_DIR"] = mkdtemp()
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
+#app.config["SESSION_FILE_DIR"] = mkdtemp()
+#app.config["SESSION_PERMANENT"] = False
+#app.config["SESSION_TYPE"] = "filesystem"
+#Session(app)
 
 # Configure CS50 Library to use SQLite database
 db = SQL("postgres://nroejpbfllwtau:019feb4fc02a9659a99618996e4f48f152b98fedd03a19719dabbf6a0cda25c5@ec2-54-225-92-1.compute-1.amazonaws.com:5432/d5c9on8gnask50")
