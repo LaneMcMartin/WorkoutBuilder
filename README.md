@@ -11,5 +11,5 @@ This app was produced as the final project portion of the Harvard University CS5
 
 ## Installation
 If you'd like to install the app yourself, ensure the latest version of <b>Python</b> and <b>pip</b> are installed.
-Additionally, be sure to download everything specified in the 'requirements.txt' file.
-If you would prefer to use a filesystem instead of signed cookies - uncomment line '28-33'. Otherwise, leave unchanged.
+Additionally, be sure to download everything specified in the `requirements.txt` file.
+If you would prefer to use a filesystem instead of signed cookies - uncomment line `28-33`. Otherwise, leave unchanged.
