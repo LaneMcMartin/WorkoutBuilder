@@ -12,6 +12,7 @@ from helpers import login_required
 
 # Configure application
 app = Flask(__name__)
+app.secret_key = '20180906'
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
