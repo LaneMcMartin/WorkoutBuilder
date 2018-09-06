@@ -196,7 +196,7 @@ def create():
         author_name = db.execute("SELECT username FROM users WHERE id=(:id)", id=session["user_id"])
 
         # Append data to the 'workouts' table and get a 'temp_id' to refer to it later when we join tables
-        db.execute("INSERT INTO workouts (author_id, workout_name, private, author_name, workout_type) VALUES (:id, :name, :private, :author_name, :workout_type);", id=session["user_id"], name=name, private=private, author_name=author_name[0]["username"], workout_type=request.form.get("workout_type"))
+        db.execute("INSERT INTO workouts (author_id, workout_name, private, author_name, workout_type) VALUES (:id, :name, :private, :author_name, :workout_type);", id=session["user_id"], name=name, private=bool(private), author_name=author_name[0]["username"], workout_type=request.form.get("workout_type"))
         temp_id = db.execute("SELECT max(workout_id) AS id FROM workouts;")
 
         # Append data to the 'exercises' table by iterating a loop of each exercise
