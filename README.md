@@ -6,7 +6,7 @@ A user can opt to share their workout, where it is viewable by the entire commun
 This app was produced as the final project portion of the Harvard University CS50x course.
 
 ## The website is currently hosted at Heroku:
-[WorkoutBuilder](https://workoutbuilder-v1.herokuapp.com/)
+[WorkoutBuilder](https://workoutbuilder-v1.herokuapp.com/)<br/>
 [Video Demo @ YouTube](https://www.youtube.com/watch?v=MwXPjQjP6o8)
 
 ## Installation
